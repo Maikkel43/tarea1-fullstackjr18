@@ -1,0 +1,351 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Playfair+Display:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Playfair Display', serif;
+}
+/* mi titulo sera el nombre de la clinica, sera el header*/
+.titulo{
+    width: 100%;
+    height: 60px;
+    background-color: #222;
+    /* puse display para que se alinie tanto de arriba y abajo, como de izquierda a derecha */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* tamaño del icono */
+.medico{
+    width: 40px;
+    height: 40px;
+    color: #fff;
+}
+/* titulo: nombre de la clinica*/
+.name{
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #fff;
+}
+/* quise ponerle dos lineas horizontales aunque quiza pueda hacerse con un border: 4px 4px 0 0 solid #000*/
+hr{
+    background-color: #726f6f;
+    width: 100%;
+    height: 4px;
+}
+/* busque una manera de colocar el nav de manera lateral y batalle con eso hasta que se me ocurrio hacerlo con grid
+y un contenedor padre tendra toda la informacion del main por tanto lo tendre que ir controlando con cajas*/
+.container{
+    display: grid;
+    grid-template-columns: 1fr 4fr;/* el nav solo tendra una fraccion para que no sea tan grande y el resto del contenido teendra mas*/
+    grid-template-rows: auto;
+}
+/* espacio total de la barra de navegacion*/
+.menu{
+    height: 100%;
+    background-color: #4433;
+}
+/* estilo de los enlaces*/
+.menu a{
+    width: 200px;
+    display: block;
+    margin: 80px 0;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    border-bottom: 3px solid #000; /* le puse border botton por mera estetica*/
+    color: #000;
+    text-transform: uppercase;
+    transition: all .4s;
+}
+/* un pequeño hover para animacion*/
+.menu a:hover{
+    color: crimson;
+    font-size: 1.6rem;
+}
+/* el contenido principal estara dentro de un contenedor padre para darle el estilo que quiero*/
+.padre{
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+.contenido, .contenido-secundario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 300px;
+    flex-direction: row;
+    margin: 50px 0;
+}
+.nosotros{
+    background-color: #2563;
+    margin: 10px;
+    width: 600px;
+    height: 250px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.nosotros h1{
+    font-size: 1.5rem;
+    text-align: center;
+}
+.nosotros p{
+    font-size: 1.2rem;
+    margin-top: 20px;
+    line-height: 1.8rem;
+    text-align: justify;
+}
+.img{
+    width: 300px;
+    height: 250px;
+    border-radius: 50%;
+}
+.ubicacion-redes{
+    background-color: rgba(21, 21, 9, 0.45);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
+    gap: 20px;
+    height: 100px;
+}
+.redes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.redes a{
+    margin: 0 40px;
+
+}
+/* iconos de redes*/
+.icon-tabler{
+    background-color: #222;
+    color: #f9f9f9;
+    border-radius: 50%;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+}
+.direccion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    font-size: 1.2rem;
+}
+@media (max-width: 576px){
+    .container{
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+    .name{
+        font-size: 1rem;
+    }
+    .medico{
+        width: 20px;
+        height: 20px;
+    }
+    /* aqui el menu al estar en pantallas pequeñas se retrae ose tiene display none
+    y con un poco de javascript al dar click en la lineas se despliega*/
+    .menu{
+        position: relative;
+        height: 40px;
+        display: flex;
+        align-items: center;
+    }
+    .menu-toggle{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 10px;
+    }
+    .menu-icon{
+        width: 20px;
+        height: 2px;
+        background-color: #333;
+        position: relative;
+        transition: background-color 0.3s ease;
+    }
+    .menu-icon::before, .menu-icon::after{
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background-color: #333;
+        transition: transform 0.3s ease;
+    }
+    .menu-icon::before{
+        top: -6px;
+    }
+    .menu-icon::after{
+        top: 6px;
+    }
+    .menu-items{
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #f9f9f9;
+        padding: 10px;
+        transition: opacity 0.3s ease;
+    }
+    .menu-items a{
+        display: flex;
+        color: #333;
+        text-decoration: none;
+        padding: 5px;
+    }
+    .menu-toggle.open .menu-icon::after{
+        transform: rotate(-45deg);
+        top: 0;
+    }
+    .menu-toggle.menu-toggle.open + .menu-items{
+        display: block;
+        opacity: 1;
+    }
+    /* empezamos con el contenido de la pagina que se va a desplazar en bloque
+    al estar en pantalla pequeña */
+    .padre{
+    margin-top: 20px;
+    }
+/* acomodamos las imagenes porque se salen del contenedor*/
+    .img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 350px;
+        height: 200px;
+        border-radius: 0;
+    }
+    .nosotros p{
+        display: flex;
+        justify-content: center;
+        text-align: justify;
+        font-size: 1rem;
+        line-height: 1.2rem;
+        flex-flow: row wrap;
+
+    }
+    .contenido{
+        flex-direction: column;
+        height: 500px;
+    }
+    .contenido-secundario{
+        flex-direction: column;
+        height: 500px;
+    }
+    .contenido .nosotros{
+        height: 400px;
+        width: 100%;
+        order: 2;
+    }
+    .contenido .image{
+        order: 1;
+    }
+    .contenido-secundario .nosotros{
+        width: 100%;
+        height: 400px;
+        order: 2;
+    }
+    .contenido-secundario .image{
+        order: 1;
+    }
+    /* vamos con el footer porque se sale y nos hace scroll horzontal vamo a desplazar los elementos 
+    hacia abajo*/
+    .ubicacion-redes{
+        display: block;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 300px;
+    }
+    .redes a{
+        margin: 0 20px;
+    }
+    .direccion{
+        margin-top:30px;
+        text-align: justify;
+        font-size: .87rem;
+    }
+}
+@media (max-width: 1280px){
+    /* en lugar de que los contenedores esten en columnas los aroojamos uno debajo del otro*/
+    .container{
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+    .menu{
+        position: relative;
+        height: 40px;
+        display: flex;
+        align-items: center;
+    }
+    .menu-toggle{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 10px;
+    }
+    .menu-icon{
+        width: 20px;
+        height: 2px;
+        background-color: #333;
+        position: relative;
+        transition: background-color 0.3s ease;
+    }
+    .menu-icon::before, .menu-icon::after{
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background-color: #333;
+        transition: transform 0.3s ease;
+    }
+    .menu-icon::before{
+        top: -6px;
+    }
+    .menu-icon::after{
+        top: 6px;
+    }
+    .menu-items{
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #f9f9f9;
+        padding: 10px;
+        transition: opacity 0.3s ease;
+    }
+    .menu-items a{
+        display: flex;
+        color: #333;
+        text-decoration: none;
+        padding: 5px;
+    }
+    .menu-toggle.open .menu-icon::after{
+        transform: rotate(-45deg);
+        top: 0;
+    }
+    .menu-toggle.menu-toggle.open + .menu-items{
+        display: block;
+        opacity: 1;
+    }
+    /* dandole mayor altura al contenedor de informacion para que tome el total de la paggina */
+    .contenido,.contenido-secundario{
+        height: 450px;
+    }
+    .nosotros{
+        height: 300px;
+    }
+    .ubicacion-redes{
+        height: 250px;
+    }
+    .redes{
+        padding: 0;
+    }
+}

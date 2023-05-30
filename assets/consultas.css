@@ -1,0 +1,49 @@
+/* diseñando el formulario*/
+.formulario{
+    width: 400px;
+    height: 600px;
+    background-color: #24303c;
+    padding: 30px;
+    margin: auto;
+    margin-bottom: 100px;
+    border-radius: 10px;
+}
+.form-tittle{
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #fff;
+}
+.form-inputs{
+    width: 100%;
+    background-color: #24303c;
+    padding: 10px;
+    border-radius: 3px;
+    margin-bottom: 2rem;
+    border: 1px solid #1f53c5;
+    font-size: 1rem;
+    color: #fff;
+}
+.envio{
+    width: 100%;
+    padding: .5rem;
+    font-size: 1.3rem;
+    background-color: #1f53c5;
+    border: none;
+    color: #fff;
+    font-weight: bolder;
+    margin: 1.5rem 0;
+}
+@media (min-width: 350px) and (max-width: 576px){
+    .formulario{
+        width: 300px;   
+    }
+}
+@media (max-width: 300px){
+    .formulario{
+        width: 270px;
+    }
+    .img{
+        width: 270px;
+    }
+}
