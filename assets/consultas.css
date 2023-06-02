@@ -38,12 +38,15 @@
     .formulario{
         width: 300px;   
     }
+    .img{
+        width: 200px;
+    }
 }
 @media (max-width: 300px){
     .formulario{
         width: 270px;
     }
     .img{
-        width: 270px;
+        width:200px;
     }
 }
